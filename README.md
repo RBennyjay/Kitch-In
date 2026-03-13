@@ -31,7 +31,10 @@ Kitch-In/
 │           └── Main.kt    # Application Entry Point
 ├── recipes.txt            # Local flat-file database
 └── README.md
+
+
 🛠️ Installation & Setup
+
 Prerequisites
 JDK 24+ (Recommended)
 
@@ -51,7 +54,9 @@ Alternatively, use the terminal:
 
 Bash
 java -jar Kitch-In.jar
+
 📖 Usage Guide
+
 Upon launch, navigate through the interactive menu:
 
 Add Recipe: Follow prompts to input name, time, and comma-separated ingredients.
@@ -67,6 +72,7 @@ Delete: Remove obsolete recipes from the system.
 Exit: Triggers the auto-save sequence to recipes.txt.
 
 📊 Class Architecture
+
 The system is built on a layered architecture:
 
 Recipe: The core data model.
@@ -78,6 +84,7 @@ FileStorage: Handles the transformation of objects to pipe-delimited text (|).
 MenuUI: Orchestrates user input and console output.
 
 🔮 Future Enhancements
+
 [ ] Categories: Tag recipes as Breakfast, Lunch, or Dinner.
 
 [ ] JSON Support: Transition from flat-file to JSON serialization for more complex data.
@@ -85,4 +92,5 @@ MenuUI: Orchestrates user input and console output.
 [ ] GUI Upgrade: Transition the CLI to a Compose for Desktop application.
 
 📝 Author
+
 Ebenezer John (Benny Jay) IT Professional | Full-Stack Developer

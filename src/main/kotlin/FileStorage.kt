@@ -1,7 +1,19 @@
 import java.io.File
 
+/**
+ * FileStorage is responsible for saving recipes to a file
+ * and loading them back into the application when it starts.
+ * This allows recipe data to persist between program runs.
+ */
 class FileStorage(private val file: File) {
 
+    /**
+     * Saves the list of recipes to the storage file.
+     * Each recipe is written as a single line using the format:
+     * name | prepTime | ingredient1,ingredient2,ingredient3
+     *
+     * @param recipes The list of recipes that should be saved.
+     */
     fun saveRecipes(recipes: List<Recipe>) {
 
         val lines = recipes.map {
@@ -13,6 +25,13 @@ class FileStorage(private val file: File) {
         println("...Progress saved to ${file.name}")
     }
 
+    /**
+     * Loads recipes from the storage file if it exists.
+     * The file is read line by line and converted back
+     * into Recipe objects which are returned to the program.
+     *
+     * @return A mutable list containing all loaded recipes.
+     */
     fun loadRecipes(): MutableList<Recipe> {
 
         val recipes = mutableListOf<Recipe>()

@@ -1,8 +1,19 @@
+/**
+ * MenuUI is responsible for handling all user interaction
+ * through the command-line interface. It displays menus,
+ * collects user input, and calls functions in RecipeManager
+ * to perform operations on recipes.
+ */
 class MenuUI(
     private val manager: RecipeManager,
     private val storage: FileStorage
 ) {
 
+    /**
+     * Starts the main application loop.
+     * Displays the main menu and processes user selections
+     * until the user chooses to exit the program.
+     */
     fun start() {
 
         var running = true
@@ -44,6 +55,11 @@ class MenuUI(
         }
     }
 
+    /**
+     * Prompts the user to enter a new recipe's details
+     * including the name, preparation time, and ingredients.
+     * The recipe is then added to the RecipeManager.
+     */
     private fun addRecipe() {
 
         print("Enter recipe name (e.g., Jollof Rice): ")
@@ -65,6 +81,11 @@ class MenuUI(
         println("Recipe added!")
     }
 
+    /**
+     * Displays all recipes currently stored in the system.
+     * Each recipe is printed with its preparation time
+     * and list of ingredients.
+     */
     private fun viewRecipes() {
 
         val recipes: List<Recipe> = manager.listRecipes()
@@ -80,6 +101,11 @@ class MenuUI(
         }
     }
 
+    /**
+     * Allows the user to search for recipes that contain
+     * a specific ingredient entered by the user.
+     * Matching recipes are displayed in the console.
+     */
     private fun searchRecipe() {
 
         print("Ingredient: ")
@@ -96,6 +122,11 @@ class MenuUI(
         }
     }
 
+    /**
+     * Allows the user to modify an existing recipe.
+     * The user selects a recipe by number and can update
+     * the name, preparation time, or ingredients.
+     */
     private fun editRecipe() {
 
         val recipes: List<Recipe> = manager.listRecipes()
@@ -139,6 +170,11 @@ class MenuUI(
         println("Recipe updated!")
     }
 
+    /**
+     * Removes a recipe from the list.
+     * The user selects the recipe by its number
+     * and the RecipeManager deletes it if the index is valid.
+     */
     private fun deleteRecipe() {
 
         print("Enter recipe number: ")
