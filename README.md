@@ -1,135 +1,88 @@
 # Kitch-In
 
-Kitch-In
+# 🍳 Kitch-In: Kotlin Recipe Manager
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.9%2B-blue.svg)](https://kotlinlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Kitch-In is a simple, CLI-based recipe management tool built in Kotlin. It allows users to add, view, edit, search, and delete recipes, with data persisted to a local file.
+**Kitch-In** is a lightweight, CLI-based recipe management system built in Kotlin. Designed with a focus on **Object-Oriented Programming (OOP)** and **Data Persistence**, it allows users to manage their culinary library directly from the terminal.
 
-Table of Contents
+---
 
-Features
+## 🚀 Features
+- **Full CRUD Operations**: Create, Read, Update, and Delete recipes seamlessly.
+- **Smart Search**: Filter recipes by ingredients using Kotlin's powerful Lambda functions.
+- **Data Persistence**: Automatic serialization to `recipes.txt` ensures your data is saved between sessions.
+- **Input Validation**: Robust handling of prep times and ingredient formatting.
 
-Project Structure
+---
 
-Installation
+## 📂 Project Structure
+The project follows a modular architecture for better maintainability:
 
-Usage
-
-Class Diagram
-
-Future Enhancements
-
-Features
-
-Add new recipes with name, prep time, and ingredients.
-
-View all recipes in a clean list format.
-
-Edit existing recipes.
-
-Delete recipes by selection.
-
-Search recipes by ingredient.
-
-Save and load recipes from a file (recipes.txt).
-
-Project Structure
+```text
 Kitch-In/
-│
 ├── src/
 │   └── main/
 │       └── kotlin/
-│           ├── data/
-│           │   └── Recipe.kt
-│           │
-│           ├── logic/
-│           │   └── RecipeManager.kt
-│           │
-│           ├── storage/
-│           │   └── FileStorage.kt
-│           │
-│           ├── ui/
-│           │   └── MenuUI.kt
-│           │
-│           └── Main.kt
-│
-├── recipes.txt          # Persistent storage of recipes
-└── build.gradle / pom.xml (optional, if using Gradle/Maven)
+│           ├── data/      # Recipe Data Class (The Model)
+│           ├── logic/     # Business Logic & Collection Management
+│           ├── storage/   # File I/O (Persistence Layer)
+│           ├── ui/        # CLI Interface & Input Handling
+│           └── Main.kt    # Application Entry Point
+├── recipes.txt            # Local flat-file database
+└── README.md
+🛠️ Installation & Setup
+Prerequisites
+JDK 24+ (Recommended)
 
-data/ – Holds the Recipe data class.
+IntelliJ IDEA (Optional but recommended)
 
-logic/ – Holds the RecipeManager class for business logic.
+Steps
+Clone the repository:
 
-storage/ – Contains FileStorage class for reading/writing recipes.
-
-ui/ – Contains MenuUI for CLI interactions.
-
-Main.kt – Program entry point.
-
-Installation
-
-Clone the repository
-
+Bash
 git clone <your-repo-url>
 cd Kitch-In
+Build and Run:
 
-Open in IntelliJ IDEA
+In IntelliJ, right-click Main.kt and select Run 'MainKt'.
 
-Go to File > Open and select the project folder.
+Alternatively, use the terminal:
 
-Ensure your Project SDK is set to Kotlin/JDK 24+.
+Bash
+java -jar Kitch-In.jar
+📖 Usage Guide
+Upon launch, navigate through the interactive menu:
 
-Build and run
+Add Recipe: Follow prompts to input name, time, and comma-separated ingredients.
 
-Right-click Main.kt and select Run 'MainKt'.
+View All: Lists all saved recipes with detailed formatting.
 
-Or use the terminal:
+Search: Find recipes containing specific ingredients (e.g., "Rice" or "Pepper").
 
-./gradlew run
-Usage
+Edit: Correct existing entries (e.g., updating prep times).
 
-Launch the program.
+Delete: Remove obsolete recipes from the system.
 
-Navigate the menu:
+Exit: Triggers the auto-save sequence to recipes.txt.
 
-1. Add Recipe
-2. View All
-3. Search by Ingredient
-4. Edit Recipe
-5. Delete Recipe
-6. Exit
+📊 Class Architecture
+The system is built on a layered architecture:
 
-Follow on-screen prompts to manage recipes.
+Recipe: The core data model.
 
-Recipes are saved automatically when exiting.
+RecipeManager: Manages the MutableList and handles search logic.
 
-Class Diagram
+FileStorage: Handles the transformation of objects to pipe-delimited text (|).
 
-The project has a layered architecture with four main classes:
+MenuUI: Orchestrates user input and console output.
 
-Recipe – Data model for recipes.
+🔮 Future Enhancements
+[ ] Categories: Tag recipes as Breakfast, Lunch, or Dinner.
 
-RecipeManager – Business logic (add, edit, delete, search).
+[ ] JSON Support: Transition from flat-file to JSON serialization for more complex data.
 
-FileStorage – Handles file persistence.
+[ ] GUI Upgrade: Transition the CLI to a Compose for Desktop application.
 
-MenuUI – CLI interface for user interaction.
-
-Relationships:
-
-RecipeManager manages Recipe objects.
-
-FileStorage reads/writes Recipe objects.
-
-MenuUI depends on both RecipeManager and FileStorage.
-
-Future Enhancements
-
-Add recipe categories (e.g., Breakfast, Lunch, Dinner).
-
-Support multiple users with separate recipe lists.
-
-Export recipes to CSV or JSON.
-
-Improve search with multiple criteria (prep time, vegetarian, etc.).
-
-Add a GUI version for desktop or web.
+📝 Author
+Ebenezer John (Benny Jay) IT Professional | Full-Stack Developer
