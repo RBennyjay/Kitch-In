@@ -1,23 +1,16 @@
-// 1. Data Class Definition (Typically at the top)
-data class Recipe(
-    val name: String,
-    val prepTimeMinutes: Int,
-    val isVegetarian: Boolean = false
-)
+import java.io.File
 
-// 2. The Single Entry Point
 fun main() {
-    // Your initial test success message
-    println("--- Kitch-In is officially running! ---")
 
-    // Your first data experiment
-    val myFirstRecipe = Recipe("Jollof Rice", 45)
-    println("Current Recipe: $myFirstRecipe")
+    val file = File("recipes.txt")
 
-    val veggieVersion = myFirstRecipe.copy(isVegetarian = true)
-    println("Vegetarian Version: $veggieVersion")
+    val storage = FileStorage(file)
 
-    println("---------------------------------------")
+    val recipes = storage.loadRecipes()
 
+    val manager = RecipeManager(recipes)
+
+    val menu = MenuUI(manager, storage)
+
+    menu.start()
 }
-
