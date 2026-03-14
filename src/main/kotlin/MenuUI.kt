@@ -107,17 +107,20 @@ class MenuUI(
      * Matching recipes are displayed in the console.
      */
     private fun searchRecipe() {
-
-        print("Ingredient: ")
-        val query = readlnOrNull() ?: ""
+        print("Ingredient to search for: ")
+        val query = readlnOrNull()?.lowercase()?.trim() ?: ""
 
         val results = manager.searchByIngredient(query)
 
         if (results.isEmpty()) {
-            println("No recipes found.")
+            println("No recipes found containing '$query'.")
         } else {
+            println("--- Found ${results.size} recipe(s) containing '$query' ---")
             results.forEach { recipe ->
-                println("${recipe.name} (${recipe.prepTimeMinutes} mins)")
+                println("- ${recipe.name} (${recipe.prepTimeMinutes} mins)")
+                // Show only ingredients that match the query
+                val matchingIngredients = recipe.ingredients.filter { it.lowercase().contains(query) }
+                println("  Ingredient(s) matched: ${matchingIngredients.joinToString(", ")}")
             }
         }
     }
